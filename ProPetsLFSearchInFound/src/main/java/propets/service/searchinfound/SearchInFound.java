@@ -31,8 +31,8 @@ public class SearchInFound {
 	public Map<String, Set<String>> searchForMatches(LostFoundToSearchDTO lostFoundToSearch) {
 		Set<FoundToSearch> resultSearchFromBD = foundRepository.findPosts(lostFoundToSearch.getType(),
 				lostFoundToSearch.getBreed(), lostFoundToSearch.getSex(),
-				lostFoundToSearch.getCoordinates().getLatitude(),
-				lostFoundToSearch.getCoordinates().getLongitude(), configuration.getRadiusSearch(),
+				lostFoundToSearch.getCoordinates().getLat(),
+				lostFoundToSearch.getCoordinates().getLon(), configuration.getRadiusSearch(),
 				lostFoundToSearch.getTags(), configuration.getPercentToSearch());
 		if (resultSearchFromBD != null) {
 			Map<String, Set<String>> result = new HashMap<>();
